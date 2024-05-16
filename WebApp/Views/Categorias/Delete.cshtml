@@ -1,0 +1,5 @@
+﻿@model Categoria
+
+<h3>Tem certeza que quer deletar essa categoria?</h3>
+<a class="btn btn-link" asp-controller="categorias" asp-action="index">não</a>
+<a class="btn btn-link" asp-controller="categorias" asp-action="ConfirmarDelete" asp-for=@Model.Id>sim</a>

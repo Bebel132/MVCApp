@@ -1,0 +1,47 @@
+﻿@using WebApp.Models
+@model List<Categoria>
+
+@section title {
+	<h1>Categorias</h1>
+}
+
+@* 
+<ul>
+	@foreach(var categoria in Model)
+	{
+		<li>
+			<a href="/categorias/edit/@categoria.Id">@categoria.Nome</a>
+		</li>
+	}
+</ul>
+*@
+
+<a class="btn btn-link" asp-controller="categorias" asp-action="create">Nova Categoria</a>
+@if (Model != null && Model.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var categoria in Model)
+            {
+                <tr>
+                    <th scope="row">@categoria.Id</th>
+                    <td>@categoria.Nome</td>
+                    <td>@categoria.Descricao</td>
+                    <td><a class="btn btn-link" asp-controller="categorias" asp-action="edit" asp-route-id
+                    ="@categoria.Id">Editar</a></td>
+                    <td><a class="btn btn-link" asp-controller="categorias" asp-action="delete" asp-route-id
+                    ="@categoria.Id">Deletar</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
